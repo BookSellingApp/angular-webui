@@ -12,7 +12,7 @@ export class Book {
 
   updatedAt: Date;
 
-  imageUrlL: string;
+  imageUrl: string;
 
   cost: number;
 }

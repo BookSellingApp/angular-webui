@@ -1,3 +1,9 @@
-<main>
-  <book-list></book-list>
-</main>
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/customers">Customers</a>
+</nav>
+
+<router-outlet></router-outlet>
+<!-- <book-list></book-list> -->
+<app-messages></app-messages>

@@ -2,16 +2,60 @@
   <h1 class="page-title">Welcome to CDAC - BookStore</h1>
   <div class="book-create">
     <form #bookForm="ngForm" (ngSubmit) = "createBook(bookForm)" novalidate>
-      <input type="text" id="title" class="form-control" placeholder="Type a book title and press enter..."
+      <input type="text" id="title" class="form-control" placeholder="Please enter the Book's title"
              required
              name="title" [(ngModel)]="newBook.title"
              #title="ngModel" >
+      <input type="text" id="author" class="form-control" placeholder="Please enter the author's name"
+             required
+             name="author" [(ngModel)]="newBook.author"
+             #author="ngModel" >
+      <input type="text" id="description" class="form-control" placeholder="Provide a brief description about the book"
+             required
+             name="description" [(ngModel)]="newBook.description"
+             #description="ngModel" >
+      <input type="text" id="imageUrl" class="form-control" placeholder="Please enter the book image url here"
+             required
+             name="imageUrl" [(ngModel)]="newBook.imageUrl"
+             #imageUrl="ngModel" >
+      <input type="text" id="cost" class="form-control" placeholder="Specify the Cost of the book"
+             required
+             name="cost" [(ngModel)]="newBook.cost"
+             #cost="ngModel" >
+
+
       <div *ngIf="title.errors && title.dirty"
            class="alert alert-danger">
         <div [hidden]="!title.errors.required">
           Title is required.
         </div>
       </div>
+      <div *ngIf="author.errors && author.dirty"
+           class="alert alert-danger">
+        <div [hidden]="!author.errors.required">
+          Author's name is required.
+        </div>
+      </div>
+      <div *ngIf="description.errors && description.dirty"
+           class="alert alert-danger">
+        <div [hidden]="!description.errors.required">
+          Book description is required.
+        </div>
+      </div>
+      <div *ngIf="imageUrl.errors && imageUrl.dirty"
+           class="alert alert-danger">
+        <div [hidden]="!imageUrl.errors.required">
+          Image Url is required.
+        </div>
+      </div>
+      <div *ngIf="cost.errors && cost.dirty"
+           class="alert alert-danger">
+        <div [hidden]="!cost.errors.required">
+          Book cost is required.
+        </div>
+      </div>
+
+      <input type="submit">
     </form>
   </div>
   <ul class="book-list">
@@ -27,11 +71,12 @@
               {{book.description}}
         </span>
         <span class="book-title">
-              {{book.cost}}
-        </span>
-        <span class="book-title">
               {{book.imageUrl}}
         </span>
+        <span class="book-title">
+              {{book.cost}}
+        </span>
+
         <span class="book-actions">
                 <a (click)="editBook(book)">
                   <i class="material-icons edit">edit</i>
@@ -41,9 +86,18 @@
                 </a>
             </span>
       </div>
+
       <div class="book-edit" *ngIf="editing && editingBook.id === book.id">
         <input class="form-control" type="text"
                [(ngModel)]="editingBook.title" required>
+        <input class="form-control" type="text"
+               [(ngModel)]="editingBook.author" required>
+        <input class="form-control" type="text"
+               [(ngModel)]="editingBook.description" required>
+        <input class="form-control" type="text"
+               [(ngModel)]="editingBook.cost" required>
+        <input class="form-control" type="text"
+               [(ngModel)]="editingBook.imageUrl" required>
         <span class="edit-actions">
                 <a (click)="updateBook(editingBook)">
                   <i class="material-icons">done</i>

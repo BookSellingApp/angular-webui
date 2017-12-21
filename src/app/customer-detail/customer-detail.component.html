@@ -1,0 +1,21 @@
+<div *ngIf="customer">
+  <h2>{{ customer.firstName +" "+customer.lastName +"'s" | uppercase }} Details</h2>
+  <div><span class="badge">id: </span>{{customer.id}}</div>
+  <div>
+    <label>Firstname:
+      <input [(ngModel)]="customer.firstName" placeholder="Firstname">
+    </label>
+    <label>Lastname:
+      <input [(ngModel)]="customer.lastName" placeholder="Lastname">
+    </label>
+    <label>Email ID:
+      <input [(ngModel)]="customer.emailId" placeholder="Email id">
+    </label>
+    <label>Mobile:
+      <input [(ngModel)]="customer.mobileNumber" placeholder="Mobile">
+    </label>
+  </div>
+</div>
+
+<button (click)="goBack()">go back</button>
+<button (click)="save()">save</button>

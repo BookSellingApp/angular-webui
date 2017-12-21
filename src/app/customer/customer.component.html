@@ -1,0 +1,35 @@
+<h2>All Customers</h2>
+
+<div>
+  <label>Customer firstName:
+    <input #firstName />
+  </label>
+  <label>Customer lastName:
+    <input #lastName />
+  </label>
+  <label>Customer email id:
+    <input #emailId />
+  </label>
+  <label>Customer mobileNo:
+    <input #mobileNo />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(firstName.value, lastName.value, emailId.value, mobileNo.value); firstName.value=''; lastName.value='';
+  emailId.value=''; mobileNo.value='' ">
+    add
+  </button>
+</div>
+
+<ul class="customer">
+  <li *ngFor="let customer of customers">
+
+    <a routerLink="/detail/{{customer.id}}">
+      <span class="badge">{{customer.mobileNumber}} : </span> {{customer.lastName}}, {{customer.firstName}}
+    </a>
+
+    <button class="delete" title="delete customer"
+            (click)="delete(customer)">x</button>
+
+  </li>
+</ul>
+
