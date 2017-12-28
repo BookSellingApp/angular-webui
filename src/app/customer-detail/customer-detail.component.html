@@ -5,17 +5,23 @@
     <label>Firstname:
       <input [(ngModel)]="customer.firstName" placeholder="Firstname">
     </label>
+  </div>
+  <div>
     <label>Lastname:
       <input [(ngModel)]="customer.lastName" placeholder="Lastname">
     </label>
+  </div>
+  <div>
     <label>Email ID:
       <input [(ngModel)]="customer.emailId" placeholder="Email id">
     </label>
+  </div>
+  <div>
     <label>Mobile:
       <input [(ngModel)]="customer.mobileNumber" placeholder="Mobile">
     </label>
   </div>
 </div>
 
-<button (click)="goBack()">go back</button>
-<button (click)="save()">save</button>
+<button (click)="goBack()">Back</button>
+<button (click)="save()">Save</button>

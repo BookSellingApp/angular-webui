@@ -1,26 +1,28 @@
-<h2>All Customers</h2>
+<h2>Enter Customer Details and Click on Add to Create a New Customer</h2>
 
 <div>
-  <label>Customer firstName:
+  <label>Firstname:
     <input #firstName />
   </label>
-  <label>Customer lastName:
+  <label>Lastname:
     <input #lastName />
   </label>
-  <label>Customer email id:
+  <label>Email id:
     <input #emailId />
   </label>
-  <label>Customer mobileNo:
+  <label>Mobile No:
     <input #mobileNo />
   </label>
   <!-- (click) passes input value to add() and then clears the input -->
   <button (click)="add(firstName.value, lastName.value, emailId.value, mobileNo.value); firstName.value=''; lastName.value='';
   emailId.value=''; mobileNo.value='' ">
-    add
+    Add
   </button>
 </div>
 
-<ul class="customer">
+<h2>Existing Customers are as below, click to view more details/edit:</h2>
+
+<ul class="customers">
   <li *ngFor="let customer of customers">
 
     <a routerLink="/detail/{{customer.id}}">

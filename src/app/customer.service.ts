@@ -30,6 +30,32 @@ export class CustomerService {
       );
   }
 
+  searchCustomers(term: string): Observable<Customer[]> {
+    if (!term.trim()) {
+      // if not search term, return empty customer array.
+      return of([]);
+    }
+    // return this.http.get<Customer[]>(`${this.customersUrl}/search/${term}`)
+    return this.http.get<Customer[]>(`${this.customersUrl}`)
+      .pipe(
+        tap(customers => this.log(`fetched customers matching "${term}"`)),
+        catchError(this.handleError<Customer[]>('searchCustomers', []))
+      );
+  }
+
+  getCustomerNo404<Data>(id: number): Observable<Customer> {
+    const url = `${this.customersUrl}/${id}`;
+    return this.http.get<Customer[]>(url)
+      .pipe(
+        map(customers => customers[0]), // returns a {0|1} element array
+        tap(h => {
+          const outcome = h ? `fetched` : `did not find`;
+          this.log(`${outcome} customer id=${id}`);
+        }),
+        catchError(this.handleError<Customer>(`getCustomer id=${id}`))
+      );
+  }
+
   getCustomer(id: String): Observable<Customer> {
 
     const url = `${this.customersUrl}/${id}`;
@@ -70,6 +96,7 @@ export class CustomerService {
       catchError(this.handleError<Customer>('deleteCustomer'))
     );
   }
+
 
   /**
    * Handle Http operation that failed.

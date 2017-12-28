@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from "../customer";
 import { CustomerService } from "../customer.service";
+import { CustomerSearchComponent } from "../customer-search/customer-search.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +19,6 @@ export class DashboardComponent implements OnInit {
 
   getCustomers(): void {
     this.customerService.getCustomers()
-      .subscribe(fetchedCustomers => this.customers = fetchedCustomers.slice(1, 5));
+      .subscribe(fetchedCustomers => this.customers = fetchedCustomers.slice(0, 4));
   }
 }
