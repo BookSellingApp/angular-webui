@@ -17,6 +17,7 @@ import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerSearchComponent } from './customer-search/customer-search.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CustomerSearchComponent } from './customer-search/customer-search.compo
     CustomerDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    CustomerSearchComponent
+    CustomerSearchComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
