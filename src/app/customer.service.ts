@@ -36,7 +36,7 @@ export class CustomerService {
       return of([]);
     }
     // return this.http.get<Customer[]>(`${this.customersUrl}/search/${term}`)
-    return this.http.get<Customer[]>(`${this.customersUrl}`)
+    return this.http.get<Customer[]>(`${this.customersUrl}/search/${term}`)
       .pipe(
         tap(customers => this.log(`fetched customers matching "${term}"`)),
         catchError(this.handleError<Customer[]>('searchCustomers', []))
