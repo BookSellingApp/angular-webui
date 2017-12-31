@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BookService } from './book.service';
-import { Book } from './book';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { Book } from "../book";
+import { BookService } from "../book.service";
 
 @Component({
-  selector: 'book-list',
-  templateUrl: './book-list.component.html'
+  selector: 'app-book',
+  templateUrl: './book.component.html'
 })
 
-export class BookListComponent implements OnInit {
+export class BookComponent implements OnInit {
   books: Book[];
   newBook: Book = new Book();
   editing: boolean = false;
@@ -24,12 +24,12 @@ export class BookListComponent implements OnInit {
 
   getBooks(): void {
     this.bookService.getBooks()
-      .then(books => this.books = books );
+      .subscribe(books => this.books = books );
   }
 
   createBook(bookForm: NgForm): void {
     this.bookService.createBook(this.newBook)
-      .then(createBook => {
+      .subscribe(createBook => {
         bookForm.reset();
         this.newBook = new Book();
         this.books.unshift(createBook)
@@ -38,19 +38,19 @@ export class BookListComponent implements OnInit {
 
   deleteBook(id: string): void {
     this.bookService.deleteBook(id)
-    .then(() => {
-      this.books = this.books.filter(book => book.id != id);
-    });
+      .subscribe(() => {
+        this.books = this.books.filter(book => book.id != id);
+      });
   }
 
   updateBook(bookData: Book): void {
     console.log(bookData);
     this.bookService.updateBook(bookData)
-    .then(updatedBook => {
-      let existingBook = this.books.find(book => book.id === updatedBook.id);
-      Object.assign(existingBook, updatedBook);
-      this.clearEditing();
-    });
+      .subscribe(updatedBook => {
+        let existingBook = this.books.find(book => book.id === updatedBook.id);
+        Object.assign(existingBook, updatedBook);
+        this.clearEditing();
+      });
   }
 
 

@@ -22,7 +22,6 @@ export class CustomerService {
 
   getCustomers(): Observable<Customer[]> {
 
-    this.messageService.add('Customer Service: fetched customers');
     return this.http.get<Customer[]>(this.customersUrl)
       .pipe(
         tap(customers => this.log(`fetched customers`)),

@@ -6,7 +6,6 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 
-import { BookListComponent } from './book-list.component';
 
 import { BookService } from './book.service';
 import {CustomerComponent} from "./customer/customer.component";
@@ -18,18 +17,19 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerSearchComponent } from './customer-search/customer-search.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BookComponent } from './book/book.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookListComponent,
     CustomerComponent,
     CustomerDetailComponent,
     MessagesComponent,
     DashboardComponent,
     CustomerSearchComponent,
-    NavbarComponent
+    NavbarComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
