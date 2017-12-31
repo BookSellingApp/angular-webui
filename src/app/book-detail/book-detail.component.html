@@ -1,0 +1,27 @@
+<div *ngIf="book">
+  <h2>{{ book.title +" by "+book.author | uppercase }} Details</h2>
+  <div><span class="badge">id: </span>{{book.id}}</div>
+  <div>
+    <label>Title:
+      <input [(ngModel)]="book.title" placeholder="Title">
+    </label>
+  </div>
+  <div>
+    <label>Author:
+      <input [(ngModel)]="book.author" placeholder="Author">
+    </label>
+  </div>
+  <div>
+    <label>Description:
+      <input [(ngModel)]="book.description" placeholder="Description">
+    </label>
+  </div>
+  <div>
+    <label>Cost:
+      <input [(ngModel)]="book.cost" placeholder="Cost">
+    </label>
+  </div>
+</div>
+
+<button (click)="goBack()">Back</button>
+<button (click)="save()">Save</button>

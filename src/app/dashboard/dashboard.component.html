@@ -1,11 +1,15 @@
-<h3>Top Customers</h3>
+<h3>All Books</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let customer of customers" class="col-1-4" routerLink="/detail/{{customer.id}}">
-    <div class="module customer">
-      <h4>{{customer.firstName}}</h4>
+  <a *ngFor="let book of books" class="col-1-4" routerLink="/bookDetails/{{book.id}}">
+    <div class="module">
+      <h4>{{book.title}}</h4>
+      <h4>{{book.author}}</h4>
+      <h4>{{book.description}}</h4>
+      <h4>{{book.cost}}</h4>
     </div>
   </a>
 </div>
 
-
+<!--
 <app-customer-search></app-customer-search>
+-->

@@ -4,13 +4,15 @@ import { CustomerComponent } from "./customer/customer.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { CustomerDetailComponent } from "./customer-detail/customer-detail.component";
 import {BookComponent} from "./book/book.component";
+import {BookDetailComponent} from "./book-detail/book-detail.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'customers', component: CustomerComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: CustomerDetailComponent },
-  { path: 'books', component: BookComponent }
+  { path: 'books', component: BookComponent },
+  { path: 'bookDetails/:id', component: BookDetailComponent },
 ];
 
 @NgModule({

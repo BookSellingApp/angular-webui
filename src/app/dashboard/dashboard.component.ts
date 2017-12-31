@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from "../customer";
-import { CustomerService } from "../customer.service";
+import { BookService } from "../book.service";
+import { Book } from "../book";
 import { CustomerSearchComponent } from "../customer-search/customer-search.component";
 
 @Component({
@@ -9,16 +9,16 @@ import { CustomerSearchComponent } from "../customer-search/customer-search.comp
   styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
-  customers: Customer[] = [];
+  books: Book[] = [];
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private bookService: BookService) { }
 
   ngOnInit() {
     this.getCustomers();
   }
 
   getCustomers(): void {
-    this.customerService.getCustomers()
-      .subscribe(fetchedCustomers => this.customers = fetchedCustomers.slice(0, 4));
+    this.bookService.getBooks()
+      .subscribe(fetchedBooks => this.books = fetchedBooks);
   }
 }
