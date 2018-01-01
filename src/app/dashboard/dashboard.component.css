@@ -31,9 +31,9 @@ h4 {
   padding: 20px;
   text-align: center;
   color: #eee;
-  max-height: 120px;
+  max-height: 150px;
   min-width: 120px;
-  background-color: #607D8B;
+  background-color: orange;
   border-radius: 2px;
 }
 .module:hover {
