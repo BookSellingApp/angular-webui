@@ -9,6 +9,9 @@
           {{book.title}} by {{book.author}}
         </a>
       </div>
+      <div *ngIf="!book">
+        No results found.
+      </div>
     </li>
   </ul>
 </div>
