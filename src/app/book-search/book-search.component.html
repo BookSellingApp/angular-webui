@@ -1,6 +1,8 @@
-<div id="search-component">
-
-  <input class="span5 btn-lg" #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Search book by title" />
+<div id="search-component" class="container-fluid">
+<div class="pull-right">
+  <span class="badge"> Search any book by entering its title
+    <input class="btn btn-default" size="50" #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Enter book's title here..." />
+  </span>
 
   <ul class="search-result">
     <li *ngFor="let book of books$ | async" >
@@ -14,4 +16,5 @@
       </div>
     </li>
   </ul>
+</div>
 </div>
