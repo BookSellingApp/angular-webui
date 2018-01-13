@@ -2,16 +2,16 @@
   <h2>Existing Customers:</h2>
   <span class="label-warning">Click on name for more details or to delete click the 'X' button</span>
 </div>
-<div class="col-md-5">
+<div class="col-md-8">
   <ul class="list-group">
     <li *ngFor="let customer of customers; let i = index" class="list-group-item">
 
       <a routerLink="/detail/{{customer.id}}">
         <span>{{ i+1 }} : </span>
         {{customer.lastName}}, {{customer.firstName}}
-        <span class="badge">{{ customer.emailId }}</span>
-        <span class="badge">{{ customer.mobileNumber }}</span>
       </a>
+      || <span>{{ customer.emailId }}</span>
+      || <span>{{ customer.mobileNumber }}</span>
 
       <button class="delete" title="delete customer"
               (click)="delete(customer)">x</button>

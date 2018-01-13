@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from "../customer";
 import { CustomerService } from "../customer.service";
-import {Address} from "../Address";
+import {Address} from "../address";
 import {post} from "selenium-webdriver/http";
 
 @Component({
