@@ -1,27 +1,90 @@
-<div *ngIf="customer">
-  <h2>{{ customer.firstName +" "+customer.lastName +"'s" | uppercase }} Details</h2>
-  <div><span class="badge">id: </span>{{customer.id}}</div>
-  <div>
-    <label>Firstname:
-      <input [(ngModel)]="customer.firstName" placeholder="Firstname">
-    </label>
-  </div>
-  <div>
-    <label>Lastname:
-      <input [(ngModel)]="customer.lastName" placeholder="Lastname">
-    </label>
-  </div>
-  <div>
-    <label>Email ID:
-      <input [(ngModel)]="customer.emailId" placeholder="Email id">
-    </label>
-  </div>
-  <div>
-    <label>Mobile:
-      <input [(ngModel)]="customer.mobileNumber" placeholder="Mobile">
-    </label>
-  </div>
-</div>
+<div class="container">
 
-<button (click)="goBack()">Back</button>
-<button (click)="save()">Save</button>
+  <div *ngIf="customer">
+    <h2><span>{{ customer.firstName +" "+customer.lastName +"'s" | uppercase }} details ( Id: {{customer.id}} ) </span> </h2>
+    <div class="label label-warning">If customer details are updated, click on 'Update Details' button to Save the details. </div>
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Firstname: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.firstName" placeholder="No Firstname">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Lastname: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.lastName" placeholder="No Lastname">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Email Id: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.emailId" placeholder="No Email ID">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Mobile: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.mobileNumber" placeholder="No Mobile">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Address Line 1: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.address.addressLine1" placeholder="No Address Line 1">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Address Line 2: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.address.addressLine2" placeholder="No Address Line 2">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Locality: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.address.locality" placeholder="No Locality">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Landmark: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.address.landmark" placeholder="No Landmark">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">City: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.address.city" placeholder="No City">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">State: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.address.state" placeholder="No State">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Country: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.address.country" placeholder="No Country">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Postcode: </label>
+        <div class="col-sm-3">
+          <input class="form-control" [(ngModel)]="customer.address.postalCode" placeholder="No Postcode">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button class="btn btn-warning" (click)="goBack()">Go Back</button>
+          <button class="btn btn-success" (click)="save()">Update Details</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

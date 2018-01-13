@@ -1,37 +1,93 @@
-<h2>Enter Customer Details and Click on Add to Create a New Customer</h2>
+<h3>Enter the Customer details and click on 'Create Customer' button</h3>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="firstName" class="col-sm-2 control-label">Firstname *</label>
+    <div class="col-sm-3">
+      <input #firstName type="text" class="form-control" id="firstName" placeholder="firstName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName" class="col-sm-2 control-label">Lastname *</label>
+    <div class="col-sm-3">
+      <input #lastName type="text" class="form-control" id="lastName" placeholder="lastName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="emailId" class="col-sm-2 control-label">Email Id *</label>
+    <div class="col-sm-3">
+      <input #emailId type="email" class="form-control" id="emailId" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-2 control-label">Password *</label>
+    <div class="col-sm-3">
+      <input #password type="password" class="form-control" id="password" placeholder="password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="mobileNo" class="col-sm-2 control-label">Mobile No</label>
+    <div class="col-sm-3">
+      <input #mobileNo type="text" class="form-control" id="mobileNo" placeholder="mobileNo">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="addressLine1" class="col-sm-2 control-label">Address Line 1</label>
+    <div class="col-sm-3">
+      <input #addressLine1 type="text" class="form-control" id="addressLine1" placeholder="addressLine1">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="addressLine2" class="col-sm-2 control-label">Address Line 2</label>
+    <div class="col-sm-3">
+      <input #addressLine2 type="text" class="form-control" id="addressLine2" placeholder="addressLine2">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="locality" class="col-sm-2 control-label">Locality</label>
+    <div class="col-sm-3">
+      <input #locality type="text" class="form-control" id="locality" placeholder="locality">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="landmark" class="col-sm-2 control-label">Landmark</label>
+    <div class="col-sm-3">
+      <input #landmark type="text" class="form-control" id="landmark" placeholder="landmark">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="city" class="col-sm-2 control-label">City</label>
+    <div class="col-sm-3">
+      <input #city type="text" class="form-control" id="city" placeholder="city">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="state" class="col-sm-2 control-label">State</label>
+    <div class="col-sm-3">
+      <input #state type="text" class="form-control" id="state" placeholder="state">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="country" class="col-sm-2 control-label">Country</label>
+    <div class="col-sm-3">
+      <input #country type="text" class="form-control" id="country" placeholder="country">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="postcode" class="col-sm-2 control-label">Postcode</label>
+    <div class="col-sm-3">
+      <input #postcode type="text" class="form-control" id="postcode" placeholder="postcode">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
 
-<div>
-  <label>Firstname:
-    <input #firstName />
-  </label>
-  <label>Lastname:
-    <input #lastName />
-  </label>
-  <label>Email id:
-    <input #emailId />
-  </label>
-  <label>Mobile No:
-    <input #mobileNo />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(firstName.value, lastName.value, emailId.value, mobileNo.value); firstName.value=''; lastName.value='';
-  emailId.value=''; mobileNo.value='' ">
-    Add
-  </button>
-</div>
+      <button class="btn btn-success" (click)="add(firstName.value, lastName.value, emailId.value, password.value, mobileNo.value, addressLine1.value,
+        addressLine2.value, locality.value, landmark.value, city.value, state.value, country.value, postcode.value); firstName.value=''; lastName.value='';
+        emailId.value=''; mobileNo.value=''; addressLine1.value=''; password.value=''; addressLine2.value=''; locality.value=''; landmark.value='';
+        city.value='';  state.value=''; country.value=''; postcode.value=''; ">
+        Create Customer
+      </button>
 
-<h2>Existing Customers are as below, click to view more details/edit:</h2>
-
-<ul class="customers">
-  <li *ngFor="let customer of customers">
-
-    <a routerLink="/detail/{{customer.id}}">
-      <span class="badge">{{customer.mobileNumber}} : </span> {{customer.lastName}}, {{customer.firstName}}
-    </a>
-
-    <button class="delete" title="delete customer"
-            (click)="delete(customer)">x</button>
-
-  </li>
-</ul>
-
+    </div>
+  </div>
+</form>

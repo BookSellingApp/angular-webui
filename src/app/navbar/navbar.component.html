@@ -12,8 +12,29 @@
     </div>
     <div class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }">
       <ul class="nav navbar-nav">
-        <li><a routerLink="/books">All Books</a></li>
-        <li><a>Sell Books</a></li>
+        <li><a routerLink="/dashboard">Home</a></li>
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Books <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/books">Add a New Book</a></li>
+            <li><a routerLink="/dashboard">View All Books</a></li>
+          </ul>
+        </li>
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Customers <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/customers">Create a New Customer</a></li>
+            <li><a routerLink="/viewcustomers">View All Customers</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a class="dropdown-item" href="#">Search Customers</a></li>
+          </ul>
+        </li>
+
+
       </ul>
 
 

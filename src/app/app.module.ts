@@ -20,6 +20,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BookComponent } from './book/book.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookSearchComponent } from './book-search/book-search.component';
+import { ViewAllCustomersComponent } from './customer/view-all-customers.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { BookSearchComponent } from './book-search/book-search.component';
     NavbarComponent,
     BookComponent,
     BookDetailComponent,
-    BookSearchComponent
+    BookSearchComponent,
+    ViewAllCustomersComponent
   ],
   imports: [
     BrowserModule,

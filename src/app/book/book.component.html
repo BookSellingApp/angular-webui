@@ -1,27 +1,52 @@
-<div class="book-content">
-  <h1 class="page-title">Welcome to CDAC - BookStore</h1>
-  <div class="book-create">
-    <form #bookForm="ngForm" (ngSubmit) = "createBook(bookForm)" novalidate>
-      <input type="text" id="title" class="form-control" placeholder="Please enter the Book's title"
-             required
-             name="title" [(ngModel)]="newBook.title"
-             #title="ngModel" >
-      <input type="text" id="author" class="form-control" placeholder="Please enter the author's name"
-             required
-             name="author" [(ngModel)]="newBook.author"
-             #author="ngModel" >
-      <input type="text" id="description" class="form-control" placeholder="Provide a brief description about the book"
-             required
-             name="description" [(ngModel)]="newBook.description"
-             #description="ngModel" >
-      <input type="text" id="imageUrl" class="form-control" placeholder="Please enter the book image url here"
-             required
-             name="imageUrl" [(ngModel)]="newBook.imageUrl"
-             #imageUrl="ngModel" >
-      <input type="text" id="cost" class="form-control" placeholder="Specify the Cost of the book"
-             required
-             name="cost" [(ngModel)]="newBook.cost"
-             #cost="ngModel" >
+<div class="row">
+  <div class="col-md-6">
+    <form class="form-horizontal" #bookForm="ngForm" (ngSubmit) = "createBook(bookForm)" novalidate>
+      <h4 class="col-sm-offset-1">Enter the book details and click on 'Create Book' button to create a new book.</h4>
+      <div class="form-group">
+        <label for="title" class="col-sm-3 control-label">Title *</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="title" placeholder="Please enter the Book's title"
+           required
+           name="title" [(ngModel)]="newBook.title"
+           #title="ngModel" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="author" class="col-sm-3 control-label">Author *</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="author" placeholder="Please enter the Book's author name"
+                 required
+                 name="author" [(ngModel)]="newBook.author"
+                 #author="ngModel" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description" class="col-sm-3 control-label">Description *</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="description" placeholder="Please enter a brief description."
+                 required
+                 name="description" [(ngModel)]="newBook.description"
+                 #description="ngModel" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="imageUrl" class="col-sm-3 control-label">Image Url *</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="imageUrl" placeholder="Please provide the book image url"
+                 required
+                 name="imageUrl" [(ngModel)]="newBook.imageUrl"
+                 #imageUrl="ngModel" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cost" class="col-sm-3 control-label">Cost *</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="cost" placeholder="Please enter the Book's cost"
+                 required
+                 name="cost" [(ngModel)]="newBook.cost"
+                 #cost="ngModel" >
+        </div>
+      </div>
 
 
       <div *ngIf="title.errors && title.dirty"
@@ -55,50 +80,52 @@
         </div>
       </div>
 
-      <input type="submit">
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+
+          <input type="submit" value="Create Book" class="btn btn-success">
+        </div>
+      </div>
+
     </form>
   </div>
-  <ul class="book-list">
-    <li *ngFor="let book of books" >
-      <div class="book-row" *ngIf="!editing || editingBook.id != book.id">
-        <span class="book-title">
-              {{book.title}}
-        </span>
-        <span class="book-title">
-              {{book.author}}
-        </span>
-        <span class="book-title">
-              {{book.description}}
-        </span>
-        <span class="book-title">
-              {{book.imageUrl}}
-        </span>
-        <span class="book-title">
-              {{book.cost}}
-        </span>
 
-        <span class="book-actions">
+
+  <div class="col-md-6">
+    <h3 class="label-info">List of available books click on 'Pen' to edit or 'X' to delete:</h3>
+    <div class="book-content">
+      <ul class="book-list">
+        <li *ngFor="let book of books" >
+          <div class="book-row" *ngIf="!editing || editingBook.id != book.id">
+
+              <div class="book-actions">
                 <a (click)="editBook(book)">
                   <i class="material-icons edit">edit</i>
                 </a>
                 <a (click)="deleteBook(book.id)">
                   <i class="material-icons delete">clear</i>
                 </a>
-            </span>
-      </div>
+              </div>
 
-      <div class="book-edit" *ngIf="editing && editingBook.id === book.id">
-        <input class="form-control" type="text"
-               [(ngModel)]="editingBook.title" required>
-        <input class="form-control" type="text"
-               [(ngModel)]="editingBook.author" required>
-        <input class="form-control" type="text"
-               [(ngModel)]="editingBook.description" required>
-        <input class="form-control" type="text"
-               [(ngModel)]="editingBook.cost" required>
-        <input class="form-control" type="text"
-               [(ngModel)]="editingBook.imageUrl" required>
-        <span class="edit-actions">
+              <div> <span class="label label-success"> Title:</span> {{book.title}} </div>
+              <div> <span class="label label-success"> Author:</span> {{book.author}} </div>
+              <div> <span class="label label-success"> Image Url:</span> {{book.imageUrl}} </div>
+              <div> <span class="label label-success"> Cost:</span> {{book.cost}} </div>
+              <div> <span class="label label-success"> Description:</span> {{book.description}} </div>
+          </div>
+
+          <div class="book-edit" *ngIf="editing && editingBook.id === book.id">
+            <input class="form-control" type="text"
+                   [(ngModel)]="editingBook.title" required>
+            <input class="form-control" type="text"
+                   [(ngModel)]="editingBook.author" required>
+            <input class="form-control" type="text"
+                   [(ngModel)]="editingBook.description" required>
+            <input class="form-control" type="text"
+                   [(ngModel)]="editingBook.cost" required>
+            <input class="form-control" type="text"
+                   [(ngModel)]="editingBook.imageUrl" required>
+            <span class="edit-actions">
                 <a (click)="updateBook(editingBook)">
                   <i class="material-icons">done</i>
                 </a>
@@ -106,10 +133,14 @@
                   <i class="material-icons">clear</i>
                 </a>
             </span>
+          </div>
+        </li>
+      </ul>
+      <div class="no-books" *ngIf="books && books.length == 0">
+        <p>No Books Found!</p>
       </div>
-    </li>
-  </ul>
-  <div class="no-books" *ngIf="books && books.length == 0">
-    <p>No Books Found!</p>
+    </div>
   </div>
 </div>
+
+
