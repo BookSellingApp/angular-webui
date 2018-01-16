@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Book } from "../book";
 import { BookService } from "../book.service";
+import {Stock} from "../stock";
 
 @Component({
   selector: 'app-book',
@@ -11,6 +12,7 @@ import { BookService } from "../book.service";
 export class BookComponent implements OnInit {
   books: Book[];
   newBook: Book = new Book();
+  newStock: Stock = this.newBook.stock;
   editing: boolean = false;
   editingBook: Book = new Book();
 

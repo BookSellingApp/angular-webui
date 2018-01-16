@@ -1,3 +1,5 @@
+import {Stock} from "./stock";
+
 export class Book {
 
   id: string;
@@ -15,4 +17,9 @@ export class Book {
   imageUrl: string;
 
   cost: number;
+
+  status: string;
+
+  stock: Stock;
+
 }
