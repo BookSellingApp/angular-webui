@@ -9,12 +9,12 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
+  isIn = false;   // store state
   ngOnInit() {
   }
 
-  isIn = false;   // store state
   toggleState() { // click handler
-    let bool = this.isIn;
+    const bool = this.isIn;
     this.isIn = bool === false ? true : false;
   }
 

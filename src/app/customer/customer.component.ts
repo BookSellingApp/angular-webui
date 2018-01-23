@@ -29,7 +29,8 @@ export class CustomerComponent implements OnInit {
       .subscribe( fetchedCustomer => this.customers = fetchedCustomer );
   }
 
-  add(firstName: string, lastName: string, emailId: string, password: string, mobileNumber: string, addressLine1: string, addressLine2: string
+  add(firstName: string, lastName: string, emailId: string, password: string,
+    mobileNumber: string, addressLine1: string, addressLine2: string
     , locality: string, landmark: string, city: string, state: string, country: string, postcode: string): void {
 
     firstName = firstName.trim();
@@ -47,11 +48,11 @@ export class CustomerComponent implements OnInit {
     postcode = postcode.trim();
 
 
-    var addressInfo = new Address(addressLine1, addressLine2, locality, landmark, city, state, country, postcode);
+    const addressInfo = new Address(addressLine1, addressLine2, locality, landmark, city, state, country, postcode);
 
     if (!firstName && !lastName && !emailId && !password) { return; }
 
-    var customer = new Customer(firstName, lastName, emailId, mobileNumber, password, addressInfo);
+    const customer = new Customer(firstName, lastName, emailId, mobileNumber, password, addressInfo);
 
 
     this.customerService.addCustomer(customer)

@@ -34,14 +34,14 @@ export class BookComponent implements OnInit {
       .subscribe(createBook => {
         bookForm.reset();
         this.newBook = new Book();
-        this.books.unshift(createBook)
+        this.books.unshift(createBook);
       });
   }
 
   deleteBook(id: string): void {
     this.bookService.deleteBook(id)
       .subscribe(() => {
-        this.books = this.books.filter(book => book.id != id);
+        this.books = this.books.filter(book => book.id !== id);
       });
   }
 
@@ -49,7 +49,7 @@ export class BookComponent implements OnInit {
     console.log(bookData);
     this.bookService.updateBook(bookData)
       .subscribe(updatedBook => {
-        let existingBook = this.books.find(book => book.id === updatedBook.id);
+        const existingBook = this.books.find(book => book.id === updatedBook.id);
         Object.assign(existingBook, updatedBook);
         this.clearEditing();
       });
