@@ -1,13 +1,15 @@
 <h3>All Books</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let book of books" class="col-1-4" routerLink="/bookDetails/{{book.id}}">
+  <div *ngFor="let book of books" class="col-1-4">
     <div class="module">
       <h4>{{book.title}}</h4>
       <h4>{{book.author}}</h4>
       <h4>{{book.description}}</h4>
       <h4>{{book.cost}}</h4>
     </div>
-  </a>
+    <input class="btn btn-success" type="button" ng-click="addItemToCart(book)" value="Add to Cart" />
+    
+  </div>
 </div>
 
 <!--
